@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "LargeMessageSubscriber.WebApi": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
