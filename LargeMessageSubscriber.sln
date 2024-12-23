@@ -5,13 +5,13 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeMessageSubscriber.Domain", "LargeMessageSubscriber.Domain\LargeMessageSubscriber.Domain.csproj", "{09D667ED-5882-4794-9EB6-475F0794A487}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeMessageSubscriber.Infrastructure.MessageBroker", "LargeMessageSubscriber.Infrastructure\LargeMessageSubscriber.Infrastructure.MessageBroker.csproj", "{E46424E2-6431-4935-B893-9C1944F1021E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeMessageSubscriber.Infrastructure.MessageBroker", "LargeMessageSubscriber.Infrastructure.MessageBroker\LargeMessageSubscriber.Infrastructure.MessageBroker.csproj", "{E46424E2-6431-4935-B893-9C1944F1021E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeMessageSubscriber.Application", "LargeMessageSubscriber.Application\LargeMessageSubscriber.Application.csproj", "{02C4D709-8388-4B63-9A79-0A0B1D106A0F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeMessageSubscriber.Presentation", "..\LargeMessageSubscriber.Presentation\LargeMessageSubscriber.Presentation\LargeMessageSubscriber.Presentation.csproj", "{7E2F249F-3B9A-4C5A-BE88-A05CAC2EE069}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeMessageSubscriber.Infrastructure.DataAccess", "LargeMessageSubscriber.Infrastructure.DataAccess\LargeMessageSubscriber.Infrastructure.DataAccess.csproj", "{DFB4B185-6F60-41C4-8786-1E037036C308}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargeMessageSubscriber.Infrastructure.DataAccess", "LargeMessageSubscriber.DataAccess\LargeMessageSubscriber.Infrastructure.DataAccess.csproj", "{DFB4B185-6F60-41C4-8786-1E037036C308}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargeMessageSubscriber.Presentation", "LargeMessageSubscriber.Presentation\LargeMessageSubscriber.Presentation.csproj", "{E36A4B14-36EC-401B-AA81-51EFBA6972EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{02C4D709-8388-4B63-9A79-0A0B1D106A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02C4D709-8388-4B63-9A79-0A0B1D106A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02C4D709-8388-4B63-9A79-0A0B1D106A0F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7E2F249F-3B9A-4C5A-BE88-A05CAC2EE069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E2F249F-3B9A-4C5A-BE88-A05CAC2EE069}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E2F249F-3B9A-4C5A-BE88-A05CAC2EE069}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E2F249F-3B9A-4C5A-BE88-A05CAC2EE069}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DFB4B185-6F60-41C4-8786-1E037036C308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DFB4B185-6F60-41C4-8786-1E037036C308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFB4B185-6F60-41C4-8786-1E037036C308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFB4B185-6F60-41C4-8786-1E037036C308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E36A4B14-36EC-401B-AA81-51EFBA6972EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E36A4B14-36EC-401B-AA81-51EFBA6972EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E36A4B14-36EC-401B-AA81-51EFBA6972EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E36A4B14-36EC-401B-AA81-51EFBA6972EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

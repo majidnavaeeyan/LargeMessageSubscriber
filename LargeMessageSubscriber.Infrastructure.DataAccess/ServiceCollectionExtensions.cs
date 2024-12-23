@@ -5,7 +5,7 @@ namespace LargeMessageSubscriber.Infrastructure.DataAccess
 {
   public static class ServiceCollectionExtensions
   {
-    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+    public static IServiceCollection AddDataAccessInfrastructure(this IServiceCollection services)
     {
       // Register Repositories
       services.AddScoped<IPointRepository, PointRepository>();

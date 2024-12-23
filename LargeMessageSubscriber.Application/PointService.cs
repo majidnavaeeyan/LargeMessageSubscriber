@@ -6,7 +6,7 @@ using LargeMessageSubscriber.Domain.Services;
 
 namespace LargeMessageSubscriber.Application
 {
-    public class PointService : IPointService
+  public class PointService : IPointService
   {
     private readonly IPointRepository _pointRepository;
 
@@ -17,7 +17,7 @@ namespace LargeMessageSubscriber.Application
 
     public async Task InsertAsync(IEnumerable<Domain.DTOs.Point> model)
     {
-      var (validationResult, errors, warnings) = await InsertValidationAsync(model);
+      var (validationResult, errors, warnings) = InsertValidation(model);
       if (!validationResult)
         throw new ValidationException(errors, warnings);
 
@@ -27,7 +27,7 @@ namespace LargeMessageSubscriber.Application
       await _pointRepository.InsertAsync(dataModel);
     }
 
-    private async Task<(bool, IEnumerable<int>, IEnumerable<int>)> InsertValidationAsync(IEnumerable<Domain.DTOs.Point> model)
+    private (bool, IEnumerable<int>, IEnumerable<int>) InsertValidation(IEnumerable<Domain.DTOs.Point> model)
     {
       var result = true;
       var errors = new List<int>();
