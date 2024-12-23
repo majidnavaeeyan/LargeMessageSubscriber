@@ -1,14 +1,14 @@
-﻿namespace LargeMessageSubscriber.DataAccess
+﻿using LargeMessageSubscriber.Domain.Repository;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace LargeMessageSubscriber.Infrastructure.DataAccess
 {
   public static class ServiceCollectionExtensions
   {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
-      //// Register DbContext
-      //services.AddDbContext<ApplicationDbContext>(options =>          options.UseSqlServer("YourConnectionString"));
-
-      //// Register Repositories
-      //services.AddScoped<IOrderRepository, OrderRepository>();
+      // Register Repositories
+      services.AddScoped<IPointRepository, PointRepository>();
 
       return services;
     }

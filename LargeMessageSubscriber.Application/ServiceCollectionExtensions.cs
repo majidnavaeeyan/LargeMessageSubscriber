@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using LargeMessageSubscriber.Domain.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace LargeMessageSubscriber.Application
 {
@@ -7,7 +8,8 @@ namespace LargeMessageSubscriber.Application
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
       // Register Services
-      //services.AddScoped<OrderService>();
+      services.AddScoped<IPointService, PointService>();
+      services.AddScoped<IConfigurationService, ConfigurationService>();
 
       return services;
     }

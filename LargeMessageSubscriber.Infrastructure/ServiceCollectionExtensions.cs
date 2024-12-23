@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace LargeMessageSubscriber.Infrastructure
+namespace LargeMessageSubscriber.Infrastructure.MessageBroker
 {
   public static class ServiceCollectionExtensions
   {
@@ -9,8 +9,8 @@ namespace LargeMessageSubscriber.Infrastructure
       //// Register DbContext
       //services.AddDbContext<ApplicationDbContext>(options =>          options.UseSqlServer("YourConnectionString"));
 
-      //// Register Repositories
-      //services.AddScoped<IOrderRepository, OrderRepository>();
+      // Register Repositories
+      //services.AddScoped<IPointRepository, PointRepository>();
 
       return services;
     }
