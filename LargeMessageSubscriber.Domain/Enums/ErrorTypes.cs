@@ -12,5 +12,26 @@ namespace LargeMessageSubscriber.Domain.Enums
 
     [Description("برای فیلد نام مقدار غیر معتبر وارد شده است")]
     InValidAmoutForName = 102,
+
+    [Description("مقدار وارد شده برای نام کاربری خالی می باشد")]
+    UsernameIsNull = 103,
+
+    [Description("مقدار وارد شده برای گذرواژه خالی می باشد")]
+    PasswordIsNull = 104,
+
+    [Description("نام کاربری وارد شده معتبر نمی باشد")]
+    UsernameIsNotValidInDatabase = 105,
+
+    [Description("نام صادر کننده توکن معتبر نمی باشد")]
+    TokenIssuerNameIsNotValid = 106,
+
+    [Description("تاریخ اعتبار توکن تمام شده است")]
+    TokenHasExpired = 107,
+
+    [Description("نام کاربری توکن معتبر نیست")]
+    UsernameIsNotValid = 108,
+
+    [Description("توکن وارد شده قابل خواندن نیست")]
+    InvalidInputToken = 109,
   }
 }

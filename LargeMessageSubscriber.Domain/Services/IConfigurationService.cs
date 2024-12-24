@@ -6,5 +6,7 @@ namespace LargeMessageSubscriber.Domain.Services
   {
     IEnumerable<ErrorWarningModel> GetAllErrorTypes();
     IEnumerable<ErrorWarningModel> GetAllWarningTypes();
+    string GenerateJwtToken(TokenInputModel model);
+    (bool, IEnumerable<int>, IEnumerable<int>) ValidateToken(string token);
   }
 }

@@ -59,5 +59,27 @@ namespace LargeMessageSubscriber.Presentation.Controllers
         return result;
       }
     }
+
+    [HttpPost("GenerateJwtToken")]
+    public ApiResult<string> GenerateJwtToken([FromBody] TokenInputModel model)
+    {
+      try
+      {
+        var data = _configurationService.GenerateJwtToken(model);
+        var result = new ApiResult<string>(data, new List<int>(), new List<int>());
+
+        return result;
+      }
+      catch (ValidationException ex)
+      {
+        var result = new ApiResult<string>(string.Empty, ex.ErrorTypes, ex.WarningTypes);
+        return result;
+      }
+      catch (Exception ex)
+      {
+        var result = new ApiResult<string>(string.Empty, new List<int>(), new List<int>(), ex.Message);
+        return result;
+      }
+    }
   }
 }

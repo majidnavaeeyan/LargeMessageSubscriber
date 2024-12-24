@@ -1,4 +1,5 @@
 using LargeMessageSubscriber.Domain;
+using LargeMessageSubscriber.Domain.Authorization;
 using LargeMessageSubscriber.Domain.Mappings;
 using LargeMessageSubscriber.Domain.Services;
 using LargeMessageSubscriber.Domain.ViewModels;
@@ -10,6 +11,7 @@ namespace LargeMessageSubscriber.Presentation.Controllers
 {
   [ApiController]
   [Route("[controller]")]
+  [LargeMessageAuthorize]
   public class PointController : ControllerBase
   {
     private readonly ILogger<PointController> _logger;
