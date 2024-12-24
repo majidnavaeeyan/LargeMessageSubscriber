@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace LargeMessageSubscriber.Application
 {
-    public class ConfigurationService : IConfigurationService
+  public class ConfigurationService : IConfigurationService
   {
     public IEnumerable<ErrorWarningModel> GetAllErrorTypes()
     {
@@ -32,25 +32,11 @@ namespace LargeMessageSubscriber.Application
 
       foreach (var item in items)
       {
-        var data = new ErrorWarningModel { EnglishValue = item.ToString(), Id = item.GetHashCode(), PersianValue = ((DescriptionAttribute)item?.GetType()?.GetMember(item.ToString())?.First()?.GetCustomAttribute(typeof(DescriptionAttribute), false)).Description };
+        var data = new ErrorWarningModel { EnglishValue = item.ToString(), Id = item.GetHashCode(), PersianValue = ((DescriptionAttribute)item.GetType().GetMember(item.ToString()).First().GetCustomAttribute(typeof(DescriptionAttribute), false)).Description };
         result.Add(data);
       }
 
       return result;
     }
-
-    //public static T GetAttribute<T>(this Enum value) where T : Attribute
-    //{
-    //  var type = value.GetType();
-    //  var memberInfo = type.GetMember(value.ToString());
-    //  var attributes = memberInfo[0].GetCustomAttributes(typeof(T), false);
-    //  return attributes.Length > 0 ? (T)attributes[0] : null;
-    //}
-
-    //public static string GetDescription(this Enum value)
-    //{
-    //  var attribute = value.GetAttribute<DescriptionAttribute>();
-    //  return attribute == null ? value.ToString() : attribute.Description;
-    //}
   }
 }

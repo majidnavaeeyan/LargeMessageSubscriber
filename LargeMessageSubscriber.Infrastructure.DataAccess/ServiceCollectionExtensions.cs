@@ -8,7 +8,7 @@ namespace LargeMessageSubscriber.Infrastructure.DataAccess
     public static IServiceCollection AddDataAccessInfrastructure(this IServiceCollection services)
     {
       // Register Repositories
-      services.AddScoped<IPointRepository, PointRepository>();
+      services.AddTransient<IPointRepository, PointRepository>();
 
       return services;
     }

@@ -28,12 +28,12 @@ namespace LargeMessageSubscriber.Presentation.Controllers
       }
       catch (ValidationException ex)
       {
-        var result = new ApiResult<IEnumerable<ErrorWarningModel>>(null, ex.ErrorTypes, ex.WarningTypes);
+        var result = new ApiResult<IEnumerable<ErrorWarningModel>>(new List<ErrorWarningModel>(), ex.ErrorTypes, ex.WarningTypes);
         return result;
       }
       catch (Exception ex)
       {
-        var result = new ApiResult<IEnumerable<ErrorWarningModel>>(null, new List<int>(), new List<int>(), ex.Message);
+        var result = new ApiResult<IEnumerable<ErrorWarningModel>>(new List<ErrorWarningModel>(), new List<int>(), new List<int>(), ex.Message);
         return result;
       }
     }
@@ -50,12 +50,12 @@ namespace LargeMessageSubscriber.Presentation.Controllers
       }
       catch (ValidationException ex)
       {
-        var result = new ApiResult<IEnumerable<ErrorWarningModel>>(null, ex.ErrorTypes, ex.WarningTypes);
+        var result = new ApiResult<IEnumerable<ErrorWarningModel>>(new List<ErrorWarningModel>(), ex.ErrorTypes, ex.WarningTypes);
         return result;
       }
       catch (Exception ex)
       {
-        var result = new ApiResult<IEnumerable<ErrorWarningModel>>(null, new List<int>(), new List<int>(), ex.Message);
+        var result = new ApiResult<IEnumerable<ErrorWarningModel>>(new List<ErrorWarningModel>(), new List<int>(), new List<int>(), ex.Message);
         return result;
       }
     }

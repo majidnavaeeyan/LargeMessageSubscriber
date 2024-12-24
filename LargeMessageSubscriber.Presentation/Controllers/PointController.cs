@@ -4,6 +4,7 @@ using LargeMessageSubscriber.Domain.Services;
 using LargeMessageSubscriber.Domain.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Moq;
 
 namespace LargeMessageSubscriber.Presentation.Controllers
 {

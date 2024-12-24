@@ -2,10 +2,9 @@ using LargeMessageSubscriber.Application;
 using LargeMessageSubscriber.Domain.Settings;
 using LargeMessageSubscriber.Infrastructure.DataAccess;
 using LargeMessageSubscriber.Infrastructure.MessageBroker;
+using LargeMessageSubscriber.Presentation.BackgroundServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +14,8 @@ builder.Services.AddDataAccessInfrastructure();
 builder.Services.AddMessageBrokerInfrastructure();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<InfluxDbSettings>(builder.Configuration.GetSection("InfluxDb"));
-//builder.Services.AddOptions<InfluxDbSettings>().Bind(builder.Configuration.GetSection("InfluxDb")).ValidateDataAnnotations();
+builder.Services.AddHostedService<RabbitMqMessageConsumer>();
+
 
 var app = builder.Build();
 

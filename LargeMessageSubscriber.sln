@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeMessageSubscriber.Appl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeMessageSubscriber.Infrastructure.DataAccess", "LargeMessageSubscriber.Infrastructure.DataAccess\LargeMessageSubscriber.Infrastructure.DataAccess.csproj", "{DFB4B185-6F60-41C4-8786-1E037036C308}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargeMessageSubscriber.Presentation", "LargeMessageSubscriber.Presentation\LargeMessageSubscriber.Presentation.csproj", "{E36A4B14-36EC-401B-AA81-51EFBA6972EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargeMessageSubscriber.Presentation", "LargeMessageSubscriber.Presentation\LargeMessageSubscriber.Presentation.csproj", "{E36A4B14-36EC-401B-AA81-51EFBA6972EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargeMessageSubscriber.Tests", "LargeMessageSubscriber.Tests\LargeMessageSubscriber.Tests.csproj", "{65CE0E27-C85B-465D-8B44-B4FD720C6B43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{E36A4B14-36EC-401B-AA81-51EFBA6972EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E36A4B14-36EC-401B-AA81-51EFBA6972EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E36A4B14-36EC-401B-AA81-51EFBA6972EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65CE0E27-C85B-465D-8B44-B4FD720C6B43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65CE0E27-C85B-465D-8B44-B4FD720C6B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65CE0E27-C85B-465D-8B44-B4FD720C6B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65CE0E27-C85B-465D-8B44-B4FD720C6B43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

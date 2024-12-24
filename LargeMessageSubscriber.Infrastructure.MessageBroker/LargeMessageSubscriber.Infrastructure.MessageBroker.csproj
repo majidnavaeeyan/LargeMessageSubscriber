@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LargeMessageSubscriber.Application\LargeMessageSubscriber.Application.csproj" />
     <ProjectReference Include="..\LargeMessageSubscriber.Domain\LargeMessageSubscriber.Domain.csproj" />
   </ItemGroup>

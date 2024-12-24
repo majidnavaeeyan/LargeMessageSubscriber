@@ -1,6 +1,8 @@
 ﻿using LargeMessageSubscriber.Domain;
+using LargeMessageSubscriber.Domain.DTOs;
 using LargeMessageSubscriber.Domain.Enums;
 using LargeMessageSubscriber.Domain.Mappings;
+using LargeMessageSubscriber.Domain.MessageBroker;
 using LargeMessageSubscriber.Domain.Repository;
 using LargeMessageSubscriber.Domain.Services;
 
@@ -9,13 +11,17 @@ namespace LargeMessageSubscriber.Application
   public class PointService : IPointService
   {
     private readonly IPointRepository _pointRepository;
+    private readonly IMessageConsumer _messageConsumer;
+    private readonly IMessageProducer _messageProducer;
 
-    public PointService(IPointRepository pointRepository)
+    public PointService(IPointRepository pointRepository, IMessageConsumer messageConsumer, IMessageProducer messageProducer)
     {
       _pointRepository = pointRepository;
+      _messageConsumer = messageConsumer;
+      _messageProducer = messageProducer;
     }
 
-    public async Task InsertAsync(IEnumerable<Domain.DTOs.Point> model)
+    public async Task InsertAsync(IEnumerable<Point> model)
     {
       var (validationResult, errors, warnings) = InsertValidation(model);
       if (!validationResult)
@@ -27,7 +33,24 @@ namespace LargeMessageSubscriber.Application
       await _pointRepository.InsertAsync(dataModel);
     }
 
-    private (bool, IEnumerable<int>, IEnumerable<int>) InsertValidation(IEnumerable<Domain.DTOs.Point> model)
+    public async Task InsertRecievedMessagesToDbAsync()
+    {
+      //some validation can be done here
+
+      var data = await _messageConsumer.ConsumeMessageAsync();
+
+      var dataModels = data.ToDataModels();
+
+      if (dataModels.Count() > 0)
+        await _pointRepository.InsertAsync(dataModels);
+    }
+
+    public async Task EnqueuMessageToMessageBrokerAsync(List<Point> model)
+    {
+      await _messageProducer.ProduceMessageAsync(model);
+    }
+
+    private (bool, IEnumerable<int>, IEnumerable<int>) InsertValidation(IEnumerable<Point> model)
     {
       var result = true;
       var errors = new List<int>();
