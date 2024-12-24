@@ -1,1 +1,1 @@
-# LargeMessageSubscriber.WebApi
+# LargeMessageSubscriber
