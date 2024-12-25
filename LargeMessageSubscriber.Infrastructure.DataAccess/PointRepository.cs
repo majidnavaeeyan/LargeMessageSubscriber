@@ -2,7 +2,10 @@
 using InfluxDB.Client.Api.Domain;
 using InfluxDB.Client.Writes;
 using LargeMessageSubscriber.Domain.Repository;
+using LargeMessageSubscriber.Domain.Settings;
 using LargeMessageSubscriber.Domain.ViewModels;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace LargeMessageSubscriber.Infrastructure.DataAccess
 {
@@ -10,9 +13,12 @@ namespace LargeMessageSubscriber.Infrastructure.DataAccess
   {
     private readonly InfluxDBClient _client;
 
-    public PointRepository()
+    public PointRepository(IConfiguration configuration)
     {
-      var options = new InfluxDBClientOptions.Builder().Url("http://localhost:8086").AuthenticateToken("PWl6j0OWPAe6Pew1y_DL9ou7AlHKg7fPNvguMcaUhzgN1QgLUnpNRUoEY7BmmAyVQzv6m2WCPxQjk7ugtziQEQ==".ToCharArray()).Build();
+      var address = configuration.GetSection("InfluxDb:Address").Value;
+      var token = configuration.GetSection("InfluxDb:Token").Value;
+
+      var options = new InfluxDBClientOptions.Builder().Url(address).AuthenticateToken(token.ToCharArray()).Build();
       _client = InfluxDBClientFactory.Create(options);
     }
 

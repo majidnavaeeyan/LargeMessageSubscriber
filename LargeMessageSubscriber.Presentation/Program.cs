@@ -1,10 +1,13 @@
+using InfluxDB.Client.Configurations;
 using LargeMessageSubscriber.Application;
 using LargeMessageSubscriber.Domain.Settings;
 using LargeMessageSubscriber.Infrastructure.DataAccess;
 using LargeMessageSubscriber.Infrastructure.MessageBroker;
 using LargeMessageSubscriber.Presentation.BackgroundServices;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,8 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddApplication();
 builder.Services.AddDataAccessInfrastructure();
 builder.Services.AddMessageBrokerInfrastructure();
-builder.Services.Configure<InfluxDbSettings>(builder.Configuration.GetSection("InfluxDb"));
 builder.Services.AddHostedService<RabbitMqMessageConsumer>();
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 builder.Services.AddSwaggerGen(q =>
 {
   q.AddSecurityDefinition("Bearer",
@@ -37,7 +40,6 @@ builder.Services.AddSwaggerGen(q =>
                             }, new List<string>() }
                     });
 });
-
 
 var app = builder.Build();
 
