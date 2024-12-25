@@ -1,12 +1,10 @@
-# Large Message Subscriber
-
 Large Message Subscriber
 Objective
 Design and implement a system to process, store, and retrieve time-series data,
 showcasing your proficiency in backend development using ASP.NET Core and modern
 software development principles.
 
-# Data Flow
+## Data Flow
 1. Data Ingestion:
 
   * Receive data messages from a Message Broker (e.g., RabbitMQ or an
@@ -78,7 +76,7 @@ yearly buckets.
 * Provide a Docker-Compose file to set up and run the system, including
 dependencies like the Message Broker and InfluxDB.
 
-# Requirements and Considerations
+## Requirements and Considerations
 1. Architecture
 
 * Use Clean Architecture or a layered architecture approach.
@@ -176,43 +174,41 @@ aggregation for monthly bucket).
 can be launched with a single command.
 
 
-# Deliverables
+## Deliverables
 1. Source code hosted in a Git repository.
 2. A clear and concise README.md file.
 3. Unit and integration tests demonstrating system reliability.
 4. A Docker Compose file to set up and run the system.
 
-# Evaluation Criteria
-# Technical Proficiency
+## Evaluation Criteria
+## Technical Proficiency
 
 * Quality of the architecture and adherence to best practices.
 
 
 * Proper use of ASP.NET Core and integration with InfluxDB and the Message Broker.
 
-# Performance and Scalability
+## Performance and Scalability
 
 * Ability to handle high-volume data ingestion and processing.
 
 
 * Efficiency of data querying and aggregation.
 
-# Code Quality
+## Code Quality
 
 * Readability and adherence to clean code principles.
 
-# Error Handling and Logging
+## Error Handling and Logging
 
 * Robustness of the error-handling mechanism.
 
 
 * Quality and usefulness of diagnostic logs.
 
-# Testing
+## Testing
 
 * Coverage and relevance of unit and integration tests.
 
 
 * Handling of edge cases and system robustness.
-
-
