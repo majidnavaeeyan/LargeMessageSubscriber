@@ -1,0 +1,56 @@
+version: '3.8'
+services:
+  largemessagesubscriber.presentation:
+     image: ${DOCKER_REGISTRY-}largemessagesubscriberpresentation
+     build:
+       context: .
+       dockerfile: LargeMessageSubscriber.Presentation\Dockerfile
+
+  
+  influxdb:
+    image: influxdb:2.7
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=majid
+      - DOCKER_INFLUXDB_INIT_PASSWORD=12345678
+      - DOCKER_INFLUXDB_INIT_ORG=d9a201a05434532d
+      - DOCKER_INFLUXDB_INIT_BUCKET=Daily-Bucket
+      - DOCKER_INFLUXDB_INIT_RETENTION=30d
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq 
+
+  init-buckets:
+    image: influxdb:2.7
+    container_name: init-buckets
+    depends_on:
+      - influxdb
+    entrypoint: >
+      /bin/bash -c "
+      sleep 10 &&
+      influx bucket create --name Monthly-Bucket --org d9a201a05434532d --retention 12mo --token 12345678 &&
+      influx bucket create --name Yearly-Bucket --org d9a201a05434532d --retention 12y --token 12345678
+      "
+    environment:
+      - INFLUXDB_TOKEN=12345678
+      - INFLUXDB_URL=http://influxdb:8086
+
+
+volumes:
+  influxdb_data:
+  rabbitmq_data:
+
