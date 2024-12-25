@@ -149,6 +149,41 @@ dependencies (e.g., database, Message Broker).
 
   * Optimize storage by ensuring aggregated data is accurate and consistent.
  
+ ```
+option task = {name: "MonthlyAggregate", every: 30d}
+
+from(bucket: "Daily_Bucket")
+    |> range(start: -30d)
+    |> filter(fn: (r) => r._measurement == "myMeasurment")
+    |> group(columns: ["_field"])
+    |> reduce(
+        identity: {min: 1.0, max: -1.0, sum: 0.0, count: 0},
+
+        fn:
+            (accumulator, r) =>
+                ({
+                    min: if r._value < accumulator.min then r._value else accumulator.min,
+                    max: if r._value > accumulator.max then r._value else accumulator.max,
+                    sum: accumulator.sum + float(v: r._value),
+                    count: accumulator.count + 1,
+                }),
+    )
+    |> map(
+        fn: (r) =>
+            ({
+                _time: now(),
+                field_name: r._field,
+                min_value: r.min,
+                max_value: r.max,
+                mean_value: r.sum / float(v: r.count),
+
+            }),
+    )
+    |> to(bucket: "Monthly_Bucket", org: "d9a201a05434532d")
+
+
+ ```
+ 
   ![01](https://github.com/user-attachments/assets/f10ad31a-7aa1-4366-9041-876c1e801da5)
 
   ![02](https://github.com/user-attachments/assets/d3f04b20-f6c4-4b75-b218-69cee7e87307)
