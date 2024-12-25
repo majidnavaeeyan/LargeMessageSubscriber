@@ -1,5 +1,7 @@
 # Large Message Subscriber
 
+![06](https://github.com/user-attachments/assets/8ffd1cf9-1119-4a4f-a0be-7e868ab8fc49)
+
 
 Large Message Subscriber
 Objective
