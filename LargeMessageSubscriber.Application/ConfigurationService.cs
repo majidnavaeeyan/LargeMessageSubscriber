@@ -96,7 +96,7 @@ namespace LargeMessageSubscriber.Application
 
       //Number : 107
       var expirationTime = DateTimeOffset.FromUnixTimeSeconds(long.Parse(issueDate)).UtcDateTime;
-      if ((DateTime.UtcNow - expirationTime).Hours > 1)
+      if ((DateTime.UtcNow - expirationTime).Hours >= 1)
         errors.Add((int)ErrorTypes.TokenHasExpired);
 
 

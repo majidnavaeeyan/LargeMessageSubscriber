@@ -46,6 +46,28 @@ namespace LargeMessageSubscriber.Presentation.Controllers
       }
     }
 
+    [HttpPost("Get")]
+    public async Task<ApiResult<IEnumerable<QueryResult>>> GetAsync([FromBody] QueryModel model)
+    {
+      try
+      {
+        var data = await _pointService.GetAsync(model);
+        var result = new ApiResult<IEnumerable<QueryResult>>(data, new List<int>(), new List<int>());
+
+        return result;
+      }
+      catch (ValidationException ex)
+      {
+        var result = new ApiResult<IEnumerable<QueryResult>>(new List<QueryResult>(), ex.ErrorTypes, ex.WarningTypes);
+        return result;
+      }
+      catch (Exception ex)
+      {
+        var result = new ApiResult<IEnumerable<QueryResult>>(new List<QueryResult>(), new List<int>(), new List<int>(), ex.Message);
+        return result;
+      }
+    }
+
     [HttpGet("SimulateLargeInsert")]
     public async Task SimulateLargeInsertAsync()
     {

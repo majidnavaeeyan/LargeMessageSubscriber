@@ -33,5 +33,20 @@ namespace LargeMessageSubscriber.Domain.Enums
 
     [Description("توکن وارد شده قابل خواندن نیست")]
     InvalidInputToken = 109,
+
+    [Description("دقت خالی می باشد")]
+    PrecisionIsNull = 110,
+
+    [Description("دقت معتبر نمی باشد")]
+    PrecisionIsNotValid = 111,
+
+    [Description("مقدار میجرمنت خالی می باشد")]
+    MeasurementIsNull = 112,
+
+    [Description("تاریخ شروع خالی می باشد")]
+    StartTimeIsNull = 113,
+
+    [Description("تاریخ پایان خالی می باشد")]
+    EndTimeIsNull = 114,
   }
 }
