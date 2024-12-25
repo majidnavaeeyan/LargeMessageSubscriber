@@ -87,7 +87,7 @@ dependencies like the Message Broker and InfluxDB.
 ## Requirements and Considerations
 1. Architecture
 
-* Use Clean Architecture or a layered architecture approach.
+* Use Onion Architecture or a layered architecture approach.
 
 ![06](https://github.com/user-attachments/assets/61928ef6-7aca-46cf-b9aa-25aa60b75334)
 
