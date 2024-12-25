@@ -295,3 +295,9 @@ can be launched with a single command.
 * Handling of edge cases and system robustness.
 
 ![07](https://github.com/user-attachments/assets/f6e43a82-b376-42ea-b8e9-b0b98f269624)
+
+## Swagger
+
+![09](https://github.com/user-attachments/assets/07a1d6c1-9d86-4749-98a5-a2263e3922f7)
+
+
