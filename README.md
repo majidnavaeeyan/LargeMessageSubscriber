@@ -1,6 +1,5 @@
 # Large Message Subscriber
 
-![06](https://github.com/user-attachments/assets/8ffd1cf9-1119-4a4f-a0be-7e868ab8fc49)
 
 
 Large Message Subscriber
@@ -14,6 +13,8 @@ software development principles.
 
   * Receive data messages from a Message Broker (e.g., RabbitMQ or an
 equivalent).
+
+![03](https://github.com/user-attachments/assets/2c83fbcb-23b2-48f3-a107-c2ed03580893)
 
 
   * Each message contains over 5,000 data points, each with the following structure:
@@ -40,6 +41,8 @@ the subscription process and ensure the system processes it correctly.
   * Stores hourly aggregated data (average, minimum, maximum) for the last 12 months.
 
 3. Yearly Bucket:
+
+![04](https://github.com/user-attachments/assets/207dead8-257d-4f4d-bc04-b64223a109c2)
 
 
   * Stores daily aggregated data (average, minimum, maximum)
@@ -85,6 +88,8 @@ dependencies like the Message Broker and InfluxDB.
 1. Architecture
 
 * Use Clean Architecture or a layered architecture approach.
+
+![06](https://github.com/user-attachments/assets/61928ef6-7aca-46cf-b9aa-25aa60b75334)
 
 
 * Ensure separation of concerns by isolating business logic, data access, and
@@ -143,6 +148,11 @@ dependencies (e.g., database, Message Broker).
 
 
   * Optimize storage by ensuring aggregated data is accurate and consistent.
+ 
+  ![01](https://github.com/user-attachments/assets/f10ad31a-7aa1-4366-9041-876c1e801da5)
+
+  ![02](https://github.com/user-attachments/assets/d3f04b20-f6c4-4b75-b218-69cee7e87307)
+
 
 7. Code Quality
 
@@ -217,3 +227,5 @@ can be launched with a single command.
 
 
 * Handling of edge cases and system robustness.
+
+![07](https://github.com/user-attachments/assets/f6e43a82-b376-42ea-b8e9-b0b98f269624)
