@@ -28,15 +28,13 @@ namespace LargeMessageSubscriber.Infrastructure.DataAccess
         points.Add(myPoint);
       }
 
-      Console.WriteLine($"Count : {points.Count} , Time : {DateTime.Now.Second}");
+      Console.WriteLine($"Count : {points.Count} , Time : {DateTime.Now.Second} , DateTime : {DateTime.Now.Second}");
 
-      var writeApi = _client.GetWriteApiAsync();
+      var writeOptions = WriteOptions.CreateNew().BatchSize(5000).FlushInterval(1000).Build();
+      var writeApi = _client.GetWriteApi(writeOptions);
       var batches = points.Select((value, index) => new { value, index }).GroupBy(x => x.index / 1000).Select(g => g.Select(x => x.value).ToList()).ToList();
 
-      foreach (var item in batches)
-      {
-        await writeApi.WritePointsAsync(item, "Daily_Bucket", "d9a201a05434532d");
-      }
+      writeApi.WritePoints(points, "Daily_Bucket", "d9a201a05434532d");
     }
 
     public async Task<IEnumerable<QueryResult>> GetAsync(QueryModel model)

@@ -2,7 +2,6 @@
 using LargeMessageSubscriber.Domain.MessageBroker;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
 using System.Text;
 
 namespace LargeMessageSubscriber.Infrastructure.MessageBroker

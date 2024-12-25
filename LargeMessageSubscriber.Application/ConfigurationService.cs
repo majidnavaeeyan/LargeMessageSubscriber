@@ -2,7 +2,6 @@
 using LargeMessageSubscriber.Domain.Enums;
 using LargeMessageSubscriber.Domain.Services;
 using LargeMessageSubscriber.Domain.ViewModels;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;

@@ -1,5 +1,4 @@
-﻿using LargeMessageSubscriber.Domain.DTOs;
-using LargeMessageSubscriber.Domain.ViewModels;
+﻿using LargeMessageSubscriber.Domain.ViewModels;
 
 namespace LargeMessageSubscriber.Domain.Services
 {

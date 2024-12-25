@@ -5,7 +5,6 @@ using LargeMessageSubscriber.Domain.Services;
 using LargeMessageSubscriber.Domain.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Moq;
 
 namespace LargeMessageSubscriber.Presentation.Controllers
 {
@@ -71,7 +70,7 @@ namespace LargeMessageSubscriber.Presentation.Controllers
     [HttpGet("SimulateLargeInsert")]
     public async Task SimulateLargeInsertAsync()
     {
-      for (var i = 0; i < 10; i++)
+      for (var i = 0; i < 5; i++)
       {
         var data = MakeDate();
         await _pointService.EnqueuMessageToMessageBrokerAsync(data);

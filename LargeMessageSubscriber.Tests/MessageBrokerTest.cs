@@ -1,7 +1,8 @@
+using LargeMessageSubscriber.Application;
 using LargeMessageSubscriber.Domain.DTOs;
-using LargeMessageSubscriber.Domain.Services;
+using LargeMessageSubscriber.Domain.MessageBroker;
+using LargeMessageSubscriber.Domain.Repository;
 using Moq;
-using Newtonsoft.Json;
 
 namespace LargeMessageSubscriber.Tests
 {
@@ -10,12 +11,16 @@ namespace LargeMessageSubscriber.Tests
     [Fact]
     public void LoadTestTheMessageBroker()
     {
-      var _pointService = new Mock<IPointService>();
-
-      for (int i = 0; i < 10; i++)
+      for (int i = 0; i < 5; i++)
       {
-        var data = new Mock<List<Point>>(MakeDate()).Object;
-        _pointService.Setup(q => q.EnqueuMessageToMessageBrokerAsync(data)).Returns(Task.CompletedTask);
+        var data = MakeDate();
+        var pointRepository = new Mock<IPointRepository>();
+        var messageConsumer = new Mock<IMessageConsumer>();
+        var messageProducer = new Mock<IMessageProducer>();
+
+        var service = new PointService(pointRepository.Object, messageConsumer.Object, messageProducer.Object);
+
+        var result = service.EnqueuMessageToMessageBrokerAsync(data);
       }
 
       Assert.True(true);
@@ -29,7 +34,7 @@ namespace LargeMessageSubscriber.Tests
       return start.AddDays(gen.Next(range));
     }
 
-    private List<Domain.DTOs.Point> MakeDate()
+    private List<Point> MakeDate()
     {
       var myDictionary = new Dictionary<string, Domain.DTOs.Point>();
 
