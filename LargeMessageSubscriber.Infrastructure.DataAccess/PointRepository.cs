@@ -2,10 +2,8 @@
 using InfluxDB.Client.Api.Domain;
 using InfluxDB.Client.Writes;
 using LargeMessageSubscriber.Domain.Repository;
-using LargeMessageSubscriber.Domain.Settings;
 using LargeMessageSubscriber.Domain.ViewModels;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 
 namespace LargeMessageSubscriber.Infrastructure.DataAccess
 {
