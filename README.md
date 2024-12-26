@@ -123,6 +123,9 @@ presentation layers.
 
 * Contextual information such as request IDs and user details.
 
+  ![08](https://github.com/user-attachments/assets/d7b63f0e-a2da-48f8-86a8-dd9c3c78fe75)
+
+
 4. Validation
 
 * Validate all API inputs to ensure correctness and avoid unexpected failures.
