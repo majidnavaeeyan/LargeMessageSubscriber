@@ -17,7 +17,7 @@ namespace LargeMessageSubscriber.Presentation.Controllers
     }
 
     [HttpGet("GetAllErrors")]
-    public ApiResult<IEnumerable<ErrorWarningModel>> GetAllErrorTypes()
+    public ApiResult GetAllErrorTypes()
     {
       try
       {
@@ -39,7 +39,7 @@ namespace LargeMessageSubscriber.Presentation.Controllers
     }
 
     [HttpGet("GetAllWarnings")]
-    public ApiResult<IEnumerable<ErrorWarningModel>> GetAllWarningTypes()
+    public ApiResult GetAllWarningTypes()
     {
       try
       {
@@ -61,7 +61,7 @@ namespace LargeMessageSubscriber.Presentation.Controllers
     }
 
     [HttpPost("GenerateJwtToken")]
-    public ApiResult<string> GenerateJwtToken([FromBody] TokenInputModel model)
+    public ApiResult GenerateJwtToken([FromBody] TokenInputModel model)
     {
       try
       {
@@ -72,12 +72,12 @@ namespace LargeMessageSubscriber.Presentation.Controllers
       }
       catch (ValidationException ex)
       {
-        var result = new ApiResult<string>(string.Empty, ex.ErrorTypes, ex.WarningTypes);
+        var result = new ApiResult(ex.ErrorTypes, ex.WarningTypes);
         return result;
       }
       catch (Exception ex)
       {
-        var result = new ApiResult<string>(string.Empty, new List<int>(), new List<int>(), ex.Message);
+        var result = new ApiResult(new List<int>(), new List<int>(), ex.StackTrace);
         return result;
       }
     }

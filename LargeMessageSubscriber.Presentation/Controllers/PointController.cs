@@ -23,7 +23,7 @@ namespace LargeMessageSubscriber.Presentation.Controllers
     }
 
     [HttpPost("Insert")]
-    public async Task<ApiResult<bool>> InsertAsync(IEnumerable<Point> model)
+    public async Task<ApiResult> InsertAsync(IEnumerable<Point> model)
     {
       try
       {
@@ -46,7 +46,7 @@ namespace LargeMessageSubscriber.Presentation.Controllers
     }
 
     [HttpPost("Get")]
-    public async Task<ApiResult<IEnumerable<QueryResult>>> GetAsync([FromBody] QueryModel model)
+    public async Task<ApiResult> GetAsync([FromBody] QueryModel model)
     {
       try
       {
