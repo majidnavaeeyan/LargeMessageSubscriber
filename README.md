@@ -23,6 +23,11 @@ equivalent).
             Timestamp: The exact time of the data point.
             Value: A floating-point number.
 
+
+![10](https://github.com/user-attachments/assets/4210517f-7b75-4dc7-86b8-b2310b75f686)
+
+
+
   * Process incoming messages at a rate of one message per second.
 
 
