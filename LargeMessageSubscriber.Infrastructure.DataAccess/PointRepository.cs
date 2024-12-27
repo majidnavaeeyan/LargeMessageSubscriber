@@ -32,7 +32,7 @@ namespace LargeMessageSubscriber.Infrastructure.DataAccess
         points.Add(myPoint);
       }
 
-      Console.WriteLine($"Count : {points.Count} , Time : {DateTime.Now.Second} , DateTime : {DateTime.Now.Second}");
+      Console.WriteLine($"Count : {points.Count} , Time Second : {DateTime.Now.Second} , DateTime : {DateTime.Now}");
 
       var writeOptions = WriteOptions.CreateNew().BatchSize(5000).FlushInterval(1000).Build();
       var writeApi = _client.GetWriteApi(writeOptions);
