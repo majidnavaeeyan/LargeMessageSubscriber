@@ -61,7 +61,7 @@ namespace LargeMessageSubscriber.Presentation.Middlewares
 
     private async Task LogToFileAsync(string logMessage)
     {
-      var logFilePath = @$"{_logPath}\Logs\{DateTime.Today.ToString("yyyyy-MM-dd")}.log";
+      var logFilePath = @$"{_logPath}Logs\{DateTime.Today.ToString("yyyyy-MM-dd")}.log";
       Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
       File.AppendAllTextAsync(logFilePath, $"{logMessage}\n");
     }
