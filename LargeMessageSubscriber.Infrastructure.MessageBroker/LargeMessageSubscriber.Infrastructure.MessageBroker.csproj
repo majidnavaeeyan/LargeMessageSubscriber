@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LargeMessageSubscriber.Application\LargeMessageSubscriber.Application.csproj" />
     <ProjectReference Include="..\LargeMessageSubscriber.Domain\LargeMessageSubscriber.Domain.csproj" />
   </ItemGroup>
 
